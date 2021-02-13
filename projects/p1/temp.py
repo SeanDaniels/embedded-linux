@@ -5,9 +5,11 @@ from time import sleep, strftime, time
 import matplotlib.pyplot as plt
 import datetime
 
-plt.ion() 
+# Turn interactive mode on
+plt.ion()
 x = []
 y = []
+
 
 cpu = CPUTemperature()
 t_start = time()
