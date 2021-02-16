@@ -8,7 +8,10 @@ import datetime as dt
 
 # Turn interactive mode on
 fig = plt.figure()
+fig.tight_layout(h_pad=4)
+# What object is this?
 temperatureAx = fig.add_subplot(2,1,1)
+# And this?
 freqAx = fig.add_subplot(2,1,2)
 frequencyCommand = "cpufreq-info -f"
 frequencyCommandArgs = shlex.split(frequencyCommand)
@@ -16,6 +19,7 @@ xTemp = []
 yTemp = []
 xFreq = []
 yFreq = []
+yValues = [yTemp, yFreq]
 animateRunTime = []
 
 # Shows cpu temperature
@@ -38,13 +42,8 @@ def animateTemperaturePlot(i, x, y):
     y = y[-20:]
     temperatureAx.clear()
     temperatureAx.plot(x,y)
-    # plt.xticks(rotation=45, ha='right')
-    # plt.subplots_adjust(bottom=0.30)
-    # plt.title('Temperature Over Time')
-    temperatureAx.set_xticks(visible=False)
     temperatureAx.set_ylabel('Temperature (deg C)')
     temperatureAx.grid(True)
-    animateRunTime.append(time()-animateStart)
 
 def animateFreqPlot(i,x,y):
     animateStart = time()
@@ -55,12 +54,8 @@ def animateFreqPlot(i,x,y):
     y = y[-20:]
     freqAx.clear()
     freqAx.plot(x,y)
-    # plt.xticks(rotation=45, ha='right')
-    # plt.subplots_adjust(bottom=0.30)
     freqAx.set_ylabel('Frequency (MHz)')
-    freqAx.set_xticks(visible=False)
     freqAx.grid(True)
-    animateRunTime.append(time()-animateStart)
 
 aniTemp = animation.FuncAnimation(fig, animateTemperaturePlot, fargs=(xTemp,yTemp), interval=1000)
 aniFreq = animation.FuncAnimation(fig, animateFreqPlot, fargs=(xFreq,yFreq), interval=1000)
