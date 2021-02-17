@@ -6,20 +6,25 @@ from gpiozero import CPUTemperature
 from time import sleep, strftime, time
 import datetime as dt
 
-# Turn interactive mode on
-fig = plt.figure()
-fig.tight_layout(h_pad=4)
-# What object is this?
-temperatureAx = fig.add_subplot(2,1,1)
-# And this?
-freqAx = fig.add_subplot(2,1,2)
+
+fig, ax = plt.subplots(2,2)
+fig.tight_layout(w_pad=4, h_pad=4)
+temperatureAx = ax[0,0] #fig.add_subplot(2,2,1)
+freqAx = ax[1,0] #fig.add_subplot(2,2,3, sharex=temperatureAx)
 frequencyCommand = "cpufreq-info -f"
+voltageFreqAx = ax[0,1] #fig.add_subplot(2,2,2)
+temperatureFreqAx = ax[1,1] #fig.add_subplot(2,2,2)
+# need temperature vs frequency
+# need voltage vs frequency
+
+voltageCommand = "vcgencmd measure_volts core"
 frequencyCommandArgs = shlex.split(frequencyCommand)
-xTemp = []
-yTemp = []
-xFreq = []
-yFreq = []
-yValues = [yTemp, yFreq]
+voltageCommandArgs = shlex.split(voltageCommand)
+timeValues = []
+temperatureValues = []
+frequencyValues = []
+voltageValues =  []
+valueCollection = [temperatureValues, frequencyValues, voltageValues]
 animateRunTime = []
 
 # Shows cpu temperature
@@ -30,11 +35,19 @@ def getFrequency():
     data, temp = os.pipe()
     os.close(temp)
     s = subprocess.check_output(frequencyCommandArgs, stdin=data)
-    freqValue = int(s.decode("utf-8"))
+    freqValue = float(s.decode("utf-8"))
     return freqValue
 
+def getVoltage():
+    data, temp = os.pipe()
+    os.close(temp)
+    s = subprocess.check_output(voltageCommandArgs, stdin=data)
+    commandOutput = s.decode("utf-8")
+    commandOutput = commandOutput[5:-2]
+    voltage = float(commandOutput)
+    return voltage
+
 def animateTemperaturePlot(i, x, y):
-    animateStart = time()
     currentTemp = CPUTemperature().temperature
     x.append(dt.datetime.now().strftime('%H:%M:%S'))
     y.append(currentTemp)
@@ -43,12 +56,12 @@ def animateTemperaturePlot(i, x, y):
     temperatureAx.clear()
     temperatureAx.plot(x,y)
     temperatureAx.set_ylabel('Temperature (deg C)')
+    # temperatureAx.get_xaxis().set_visible(False)
     temperatureAx.grid(True)
+    plt.setp(temperatureAx.get_xticklabels(), visible=False)
 
 def animateFreqPlot(i,x,y):
-    animateStart = time()
     currentFreq = getFrequency()
-    x.append(dt.datetime.now().strftime('%H:%M:%S'))
     y.append(currentFreq/1000000)
     x = x[-20:]
     y = y[-20:]
@@ -56,7 +69,28 @@ def animateFreqPlot(i,x,y):
     freqAx.plot(x,y)
     freqAx.set_ylabel('Frequency (MHz)')
     freqAx.grid(True)
+    plt.setp(freqAx.get_xticklabels(), visible=False)
 
-aniTemp = animation.FuncAnimation(fig, animateTemperaturePlot, fargs=(xTemp,yTemp), interval=1000)
-aniFreq = animation.FuncAnimation(fig, animateFreqPlot, fargs=(xFreq,yFreq), interval=1000)
+def animateVoltageFrequencyPlot(i, x, y):
+    currentVolt = getVoltage()
+    y.append(currentVolt)
+    x = x[-20:]
+    y = y[-20:]
+    voltageFreqAx.clear()
+    voltageFreqAx.scatter(x,y)
+    voltageFreqAx.set_ylabel('Voltage(V) vs Freq(MHz)')
+    voltageFreqAx.grid(True)
+
+def animateTemperatureFrequencyPlot(i, x, y):
+    x = x[-20:]
+    y = y[-20:]
+    temperatureFreqAx.clear()
+    temperatureFreqAx.scatter(x,y)
+    temperatureFreqAx.set_ylabel('Temperature(C) vs Freq(MHz)')
+    temperatureFreqAx.grid(True)
+
+aniTemp = animation.FuncAnimation(fig, animateTemperaturePlot, fargs=(timeValues,temperatureValues), interval=1000)
+aniFreq = animation.FuncAnimation(fig, animateFreqPlot, fargs=(timeValues, frequencyValues), interval=1000)
+aniVoltFreq = animation.FuncAnimation(fig, animateVoltageFrequencyPlot, fargs=(frequencyValues,voltageValues), interval=1000)
+aniTempFreq = animation.FuncAnimation(fig, animateTemperatureFrequencyPlot, fargs=(temperatureValues,voltageValues), interval=1000)
 plt.show()
