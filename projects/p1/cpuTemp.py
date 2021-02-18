@@ -6,6 +6,7 @@ from gpiozero import CPUTemperature
 from time import sleep, strftime, time
 import datetime as dt
 
+plotInterval = 250
 
 fig, ax = plt.subplots(2,2)
 fig.tight_layout(w_pad=4, h_pad=4)
@@ -26,7 +27,7 @@ frequencyValues = []
 voltageValues =  []
 valueCollection = [temperatureValues, frequencyValues, voltageValues]
 animateRunTime = []
-
+animateTemperatureRuntime = []
 # Shows cpu temperature
 # Need to add frequency
 # Need to add voltage
@@ -48,6 +49,7 @@ def getVoltage():
     return voltage
 
 def animateTemperaturePlot(i, x, y):
+    animateTemperaturePlotRuntimeStart = time()
     currentTemp = CPUTemperature().temperature
     x.append(dt.datetime.now().strftime('%H:%M:%S'))
     y.append(currentTemp)
@@ -59,6 +61,14 @@ def animateTemperaturePlot(i, x, y):
     # temperatureAx.get_xaxis().set_visible(False)
     temperatureAx.grid(True)
     plt.setp(temperatureAx.get_xticklabels(), visible=False)
+    # animateTemperatureRuntime.append(time()-animateTemperaturePlotRuntimeStart)
+    # if len(animateTemperatureRuntime) == 10:
+    #     sum = 0
+    #     for entry in animateTemperatureRuntime:
+    #        sum += entry
+    #     avg = sum/10
+    #     print("Average runtime for temperature plot: {}".format(avg))
+    #     animateTemperatureRuntime.clear()
 
 def animateFreqPlot(i,x,y):
     currentFreq = getFrequency()
@@ -89,8 +99,8 @@ def animateTemperatureFrequencyPlot(i, x, y):
     temperatureFreqAx.set_ylabel('Temperature(C) vs Freq(MHz)')
     temperatureFreqAx.grid(True)
 
-aniTemp = animation.FuncAnimation(fig, animateTemperaturePlot, fargs=(timeValues,temperatureValues), interval=1000)
-aniFreq = animation.FuncAnimation(fig, animateFreqPlot, fargs=(timeValues, frequencyValues), interval=1000)
-aniVoltFreq = animation.FuncAnimation(fig, animateVoltageFrequencyPlot, fargs=(frequencyValues,voltageValues), interval=1000)
-aniTempFreq = animation.FuncAnimation(fig, animateTemperatureFrequencyPlot, fargs=(temperatureValues,voltageValues), interval=1000)
+aniTemp = animation.FuncAnimation(fig, animateTemperaturePlot, fargs=(timeValues,temperatureValues), interval=plotInterval)
+aniFreq = animation.FuncAnimation(fig, animateFreqPlot, fargs=(timeValues, frequencyValues), interval=plotInterval)
+aniVoltFreq = animation.FuncAnimation(fig, animateVoltageFrequencyPlot, fargs=(frequencyValues,voltageValues), interval=plotInterval)
+aniTempFreq = animation.FuncAnimation(fig, animateTemperatureFrequencyPlot, fargs=(temperatureValues,voltageValues), interval=plotInterval)
 plt.show()
