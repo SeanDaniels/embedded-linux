@@ -72,3 +72,36 @@ Finished Running the Benchmarks
 *  Minimal Interval
 	430-> 1772 milliseconds
 	interval = 1000 -> 1781
+* Report Content
+** Hardware Config
+- RPi Version: 4
+- RAM Quantity: 8 GB
+- SD Card Class: SanDisk 32GB Class 10 MicroSD Card
+- Cooling: None
+- Case: Yes
+- Desktop
+** Source Code
+** Maximum Update Rate
+I didn't implement blitting for this project. I understand that blitting can save time when updating the animation, but the overhead associated with splitting the entire figure update animation between different subplots wouldn't have been any more efficient.
+The function would need to be split because of the scatter plots. Those plots were dependent on new values for their x-axes.
+
+The maximum *dependable* update rate I was able to acheive was 430 milliseconds. I could run the plots temporarily at lower rates, but they would eventually hang.
+
+A side note on this rate: I measured the amount of time that it took to update the plot, and I found that the average time taken was around 430 milliseconds. I also know that there were times when updating the plot took 100 milliseconds longer than that. There were times that the time taken to run the animation exceeded the interval between function calls. I had assumed that the reason the animation failed was becuase the interval was less than the time needed to update the animation, but that doesn't seem to be the case
+** Images
+** Analysis
+- Are there times when the cpu speed was throttled?
+  I think this question is asking if cpu frequency dropped during any of the benchmarking tests. I didn't not observe this during my tests.
+** Instrumentation Overhead
+- Min interval = 430 -> 1772 milliseconds
+- Interval = 1000 -> 1781 milliseconds
+** Data
+ | Language | On-demand | Performance | Powersave | Ratio (pws/perf) |
+ |----------+-----------+-------------+-----------+------------------|
+ | C/C++    |      1.81 |        1.76 |      4.40 |              2.5 |
+ | C++11    |      1.34 |        1.34 |      3.34 |             2.49 |
+ | Haskell  |      2.65 |        2.65 |      6.62 |             2.49 |
+ | Java     |      4.91 |        4.85 |     11.56 |             2.38 |
+ | Python   |    158.68 |      162.03 |    406.01 |             2.51 |
+
+ The data above indicates that the run time ratio is very closely linked to the frequency ratio. The java bench mark is the farthest away in terms of the ratio deviating from 2.5. I am not sure why that is. I suppose if the benchmark was *purely* cpu bound, each of these values would be exactly 2.5. I believe the test was generated in an attempt to be cpu bound, so my guess is that any difference in the run time ratio is due to some external process running on the pi. Maybe the load on the cpu changed while the benchmark was running at one of the frequencies, or perhaps the load on the cpu changed between runs
