@@ -1,18 +1,17 @@
 #+TITLE: Notes
 * Determining Minimum Animation Interval
-- In order to determine the minimum interval rate, I need to measure how long it takes to complete a single animation update. A single animation update consists of updating 4 plots, using 4 animation functions. Here is a description of each function:
-  - animateTemperaturePlot:
-    - gets current cpu temperature through func call CPUTemperature(), appends to list
-    - gets/formats current time, appends to list
-    - clears subplot
-    - re plots subplot
-    - I clocked this and took and average after 100 runs and found that the average time for this function is approximately .1 seconds
-  - animateFreqPlot
-    - gets current frequency through subprocess call, appends to list
-    - clears subplot
-    - re plots subplot
-  - animateVoltageFrequencyPlot
-  - animateTemperatureFrequencyPlot
+** Data from plotting
+    Average runtime for temperature plot: 0.3095691442489624
+    Average runtime for temperature plot: 0.3468144416809082
+    Average runtime for temperature plot: 0.3819374322891235
+    Average runtime for temperature plot: 0.38483855724334715
+    Average runtime for temperature plot: 0.3977349042892456
+    Average runtime for temperature plot: 0.3939993858337402
+    Average runtime for temperature plot: 0.3986119985580444
+    Average runtime for temperature plot: 0.4017742872238159
+    Average runtime for temperature plot: 0.40751147270202637
+    Average runtime for temperature plot: 0.415571928024292
+    Average runtime for temperature plot: 0.4243454933166504
 - Works at 500
 - Works at 250
 - Does not work at 125
@@ -69,3 +68,7 @@ Finished Running the Benchmarks
  | Haskell  |      2.65 |        2.65 |      6.62 |
  | Java     |      4.91 |        4.85 |     11.56 |
  | Python   |    158.68 |      162.03 |    406.01 |
+
+*  Minimal Interval
+	430-> 1772 milliseconds
+	interval = 1000 -> 1781
