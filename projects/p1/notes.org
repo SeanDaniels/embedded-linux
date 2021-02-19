@@ -69,7 +69,7 @@ Finished Running the Benchmarks
  | Java     |      4.91 |        4.85 |     11.56 |
  | Python   |    158.68 |      162.03 |    406.01 |
 
-*  Minimal Interval
+* Minimal Interval
 	430-> 1772 milliseconds
 	interval = 1000 -> 1781
 * Report Content
@@ -96,6 +96,7 @@ A side note on this rate: I measured the amount of time that it took to update t
 - Min interval = 430 -> 1772 milliseconds
 - Interval = 1000 -> 1781 milliseconds
 ** Data
+
  | Language | On-demand | Performance | Powersave | Ratio (pws/perf) |
  |----------+-----------+-------------+-----------+------------------|
  | C/C++    |      1.81 |        1.76 |      4.40 |              2.5 |
