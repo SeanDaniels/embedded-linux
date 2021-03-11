@@ -1,0 +1,32 @@
+#+TITLE: GPIO
+* Embedded System w/o Linux
+** Busy-Wait
+#+begin_src c
+//input assumed to be 0
+while(input != 1)
+;
+//input == 1
+continue program
+#+end_src
+** ISR
+input_isr
+    send_signal // notify main program of input change
+* Embedded System w/ Linux
+** Busy-Wait
+** Treat I/O as file
+- Treat I/O as a file, use OS to wait for events
+- OS will make program wait for event via scheduling
+** ISR (linux kernel module)
+* Linux Events
+- Poll.h for 'files'
+  - POLLIN - data available
+  - POLLOUT - can write data
+  - POLLERR - error
+  - POLLPRI - exceptional condition
+* Linux Syscalls
+- Parameters
+  + file descriptors
+  + events of interest
+  + timeout
+* Explaining /bes/gpio-in/test_syspoll.cpp
+** Why 'outGPIO.streamWrite(LOW)'?
