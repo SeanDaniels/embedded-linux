@@ -40,7 +40,7 @@ void Set_Pixel_yuv(YUV_IMAGE_T *i, int px, int py, YUV_T *yuv) {
   i->bV[half_px + half_py * i->half_w] = yuv->v;
 }
 
-static void Get_Pixel_yuv(YUV_IMAGE_T *restrict i, int px, int py,
+void Get_Pixel_yuv(YUV_IMAGE_T *restrict i, int px, int py,
                    YUV_T *restrict yuv) {
   int half_px = px>>1, half_py = py>>1;
   yuv->y = i->bY[px + py * i->w];
