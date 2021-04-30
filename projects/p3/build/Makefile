@@ -51,10 +51,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/personal-git/Camera/rpi-mmal-demo
+CMAKE_SOURCE_DIR = /home/pi/embedded-linux/projects/p3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/personal-git/Camera/rpi-mmal-demo/build
+CMAKE_BINARY_DIR = /home/pi/embedded-linux/projects/p3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -83,9 +83,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles /home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/embedded-linux/projects/p3/build/CMakeFiles /home/pi/embedded-linux/projects/p3/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/embedded-linux/projects/p3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,224 +123,8 @@ istool1: cmake_check_build_system
 
 # fast build rule for target.
 istool1/fast:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/build
+	$(MAKE) -f src/CMakeFiles/istool1.dir/build.make src/CMakeFiles/istool1.dir/build
 .PHONY : istool1/fast
-
-PCA9685_servo_driver.o: PCA9685_servo_driver.c.o
-
-.PHONY : PCA9685_servo_driver.o
-
-# target to build an object file
-PCA9685_servo_driver.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/PCA9685_servo_driver.c.o
-.PHONY : PCA9685_servo_driver.c.o
-
-PCA9685_servo_driver.i: PCA9685_servo_driver.c.i
-
-.PHONY : PCA9685_servo_driver.i
-
-# target to preprocess a source file
-PCA9685_servo_driver.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/PCA9685_servo_driver.c.i
-.PHONY : PCA9685_servo_driver.c.i
-
-PCA9685_servo_driver.s: PCA9685_servo_driver.c.s
-
-.PHONY : PCA9685_servo_driver.s
-
-# target to generate assembly for a file
-PCA9685_servo_driver.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/PCA9685_servo_driver.c.s
-.PHONY : PCA9685_servo_driver.c.s
-
-bcm283x_board_driver.o: bcm283x_board_driver.c.o
-
-.PHONY : bcm283x_board_driver.o
-
-# target to build an object file
-bcm283x_board_driver.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/bcm283x_board_driver.c.o
-.PHONY : bcm283x_board_driver.c.o
-
-bcm283x_board_driver.i: bcm283x_board_driver.c.i
-
-.PHONY : bcm283x_board_driver.i
-
-# target to preprocess a source file
-bcm283x_board_driver.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/bcm283x_board_driver.c.i
-.PHONY : bcm283x_board_driver.c.i
-
-bcm283x_board_driver.s: bcm283x_board_driver.c.s
-
-.PHONY : bcm283x_board_driver.s
-
-# target to generate assembly for a file
-bcm283x_board_driver.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/bcm283x_board_driver.c.s
-.PHONY : bcm283x_board_driver.c.s
-
-buffer_demo_base.o: buffer_demo_base.c.o
-
-.PHONY : buffer_demo_base.o
-
-# target to build an object file
-buffer_demo_base.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/buffer_demo_base.c.o
-.PHONY : buffer_demo_base.c.o
-
-buffer_demo_base.i: buffer_demo_base.c.i
-
-.PHONY : buffer_demo_base.i
-
-# target to preprocess a source file
-buffer_demo_base.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/buffer_demo_base.c.i
-.PHONY : buffer_demo_base.c.i
-
-buffer_demo_base.s: buffer_demo_base.c.s
-
-.PHONY : buffer_demo_base.s
-
-# target to generate assembly for a file
-buffer_demo_base.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/buffer_demo_base.c.s
-.PHONY : buffer_demo_base.c.s
-
-is_options.o: is_options.c.o
-
-.PHONY : is_options.o
-
-# target to build an object file
-is_options.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/is_options.c.o
-.PHONY : is_options.c.o
-
-is_options.i: is_options.c.i
-
-.PHONY : is_options.i
-
-# target to preprocess a source file
-is_options.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/is_options.c.i
-.PHONY : is_options.c.i
-
-is_options.s: is_options.c.s
-
-.PHONY : is_options.s
-
-# target to generate assembly for a file
-is_options.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/is_options.c.s
-.PHONY : is_options.c.s
-
-keyboard.o: keyboard.c.o
-
-.PHONY : keyboard.o
-
-# target to build an object file
-keyboard.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/keyboard.c.o
-.PHONY : keyboard.c.o
-
-keyboard.i: keyboard.c.i
-
-.PHONY : keyboard.i
-
-# target to preprocess a source file
-keyboard.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/keyboard.c.i
-.PHONY : keyboard.c.i
-
-keyboard.s: keyboard.c.s
-
-.PHONY : keyboard.s
-
-# target to generate assembly for a file
-keyboard.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/keyboard.c.s
-.PHONY : keyboard.c.s
-
-sccb_bus.o: sccb_bus.c.o
-
-.PHONY : sccb_bus.o
-
-# target to build an object file
-sccb_bus.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/sccb_bus.c.o
-.PHONY : sccb_bus.c.o
-
-sccb_bus.i: sccb_bus.c.i
-
-.PHONY : sccb_bus.i
-
-# target to preprocess a source file
-sccb_bus.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/sccb_bus.c.i
-.PHONY : sccb_bus.c.i
-
-sccb_bus.s: sccb_bus.c.s
-
-.PHONY : sccb_bus.s
-
-# target to generate assembly for a file
-sccb_bus.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/sccb_bus.c.s
-.PHONY : sccb_bus.c.s
-
-video_callback.o: video_callback.c.o
-
-.PHONY : video_callback.o
-
-# target to build an object file
-video_callback.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/video_callback.c.o
-.PHONY : video_callback.c.o
-
-video_callback.i: video_callback.c.i
-
-.PHONY : video_callback.i
-
-# target to preprocess a source file
-video_callback.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/video_callback.c.i
-.PHONY : video_callback.c.i
-
-video_callback.s: video_callback.c.s
-
-.PHONY : video_callback.s
-
-# target to generate assembly for a file
-video_callback.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/video_callback.c.s
-.PHONY : video_callback.c.s
-
-yuv.o: yuv.c.o
-
-.PHONY : yuv.o
-
-# target to build an object file
-yuv.c.o:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/yuv.c.o
-.PHONY : yuv.c.o
-
-yuv.i: yuv.c.i
-
-.PHONY : yuv.i
-
-# target to preprocess a source file
-yuv.c.i:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/yuv.c.i
-.PHONY : yuv.c.i
-
-yuv.s: yuv.c.s
-
-.PHONY : yuv.s
-
-# target to generate assembly for a file
-yuv.c.s:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/yuv.c.s
-.PHONY : yuv.c.s
 
 # Help Target
 help:
@@ -349,32 +133,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... istool1"
 	@echo "... edit_cache"
-	@echo "... PCA9685_servo_driver.o"
-	@echo "... PCA9685_servo_driver.i"
-	@echo "... PCA9685_servo_driver.s"
-	@echo "... bcm283x_board_driver.o"
-	@echo "... bcm283x_board_driver.i"
-	@echo "... bcm283x_board_driver.s"
-	@echo "... buffer_demo_base.o"
-	@echo "... buffer_demo_base.i"
-	@echo "... buffer_demo_base.s"
-	@echo "... is_options.o"
-	@echo "... is_options.i"
-	@echo "... is_options.s"
-	@echo "... keyboard.o"
-	@echo "... keyboard.i"
-	@echo "... keyboard.s"
-	@echo "... sccb_bus.o"
-	@echo "... sccb_bus.i"
-	@echo "... sccb_bus.s"
-	@echo "... video_callback.o"
-	@echo "... video_callback.i"
-	@echo "... video_callback.s"
-	@echo "... yuv.o"
-	@echo "... yuv.i"
-	@echo "... yuv.s"
+	@echo "... istool1"
 .PHONY : help
 
 

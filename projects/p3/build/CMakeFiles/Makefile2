@@ -47,55 +47,73 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pi/personal-git/Camera/rpi-mmal-demo
+CMAKE_SOURCE_DIR = /home/pi/embedded-linux/projects/p3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pi/personal-git/Camera/rpi-mmal-demo/build
+CMAKE_BINARY_DIR = /home/pi/embedded-linux/projects/p3/build
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/istool1.dir/all
+all: src/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: src/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/istool1.dir/clean
+clean: src/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/istool1.dir
+# Directory level rules for directory src
+
+# Recursive "all" directory target.
+src/all: src/CMakeFiles/istool1.dir/all
+
+.PHONY : src/all
+
+# Recursive "preinstall" directory target.
+src/preinstall:
+
+.PHONY : src/preinstall
+
+# Recursive "clean" directory target.
+src/clean: src/CMakeFiles/istool1.dir/clean
+
+.PHONY : src/clean
+
+#=============================================================================
+# Target rules for target src/CMakeFiles/istool1.dir
 
 # All Build rule for target.
-CMakeFiles/istool1.dir/all:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/depend
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target istool1"
-.PHONY : CMakeFiles/istool1.dir/all
+src/CMakeFiles/istool1.dir/all:
+	$(MAKE) -f src/CMakeFiles/istool1.dir/build.make src/CMakeFiles/istool1.dir/depend
+	$(MAKE) -f src/CMakeFiles/istool1.dir/build.make src/CMakeFiles/istool1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/embedded-linux/projects/p3/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target istool1"
+.PHONY : src/CMakeFiles/istool1.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/istool1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles 9
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/istool1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles 0
-.PHONY : CMakeFiles/istool1.dir/rule
+src/CMakeFiles/istool1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/embedded-linux/projects/p3/build/CMakeFiles 9
+	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/istool1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/embedded-linux/projects/p3/build/CMakeFiles 0
+.PHONY : src/CMakeFiles/istool1.dir/rule
 
 # Convenience name for target.
-istool1: CMakeFiles/istool1.dir/rule
+istool1: src/CMakeFiles/istool1.dir/rule
 
 .PHONY : istool1
 
 # clean rule for target.
-CMakeFiles/istool1.dir/clean:
-	$(MAKE) -f CMakeFiles/istool1.dir/build.make CMakeFiles/istool1.dir/clean
-.PHONY : CMakeFiles/istool1.dir/clean
+src/CMakeFiles/istool1.dir/clean:
+	$(MAKE) -f src/CMakeFiles/istool1.dir/build.make src/CMakeFiles/istool1.dir/clean
+.PHONY : src/CMakeFiles/istool1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

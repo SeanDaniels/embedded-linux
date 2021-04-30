@@ -1,3 +1,5 @@
-/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/rebuild_cache.dir
-/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/istool1.dir
-/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/edit_cache.dir
+/home/pi/embedded-linux/projects/p3/build/CMakeFiles/rebuild_cache.dir
+/home/pi/embedded-linux/projects/p3/build/CMakeFiles/edit_cache.dir
+/home/pi/embedded-linux/projects/p3/build/src/CMakeFiles/rebuild_cache.dir
+/home/pi/embedded-linux/projects/p3/build/src/CMakeFiles/istool1.dir
+/home/pi/embedded-linux/projects/p3/build/src/CMakeFiles/edit_cache.dir
