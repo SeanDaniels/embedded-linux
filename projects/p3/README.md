@@ -1,4 +1,4 @@
-Simple Raspberry Pi MMAL project
+(NotSo)Simple Raspberry Pi MMAL project
 
 Build
 -----
