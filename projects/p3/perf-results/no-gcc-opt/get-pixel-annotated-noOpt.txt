@@ -1,0 +1,45 @@
+ Percent |	Source code & Disassembly of istool1 for cpu-clock (1614 samples)
+---------------------------------------------------------------------------------
+         :
+         :
+         :
+         :	Disassembly of section .text:
+         :
+         :	00012758 <Get_Pixel_yuv>:
+         :	Get_Pixel_yuv():
+         :	  i->bV[half_px+half_py*i->half_w] = yuv->v;
+         :	}
+         :
+         :	void Get_Pixel_yuv(YUV_IMAGE_T * i, int px, int py, YUV_T * yuv) {
+         :	  int half_px = px/2, half_py = py/2;
+         :	  yuv->y = i->bY[px + py*i->w];
+   10.22 :	  12758:       ldr     ip, [r0]
+         :	void Get_Pixel_yuv(YUV_IMAGE_T * i, int px, int py, YUV_T * yuv) {
+    0.31 :	  1275c:       push    {lr}            ; (str lr, [sp, #-4]!)
+         :	  yuv->y = i->bY[px + py*i->w];
+    9.67 :	  12760:       ldr     lr, [r0, #16]
+    0.00 :	  12764:       mla     ip, ip, r2, lr
+         :	  int half_px = px/2, half_py = py/2;
+    0.00 :	  12768:       add     r2, r2, r2, lsr #31
+         :	  yuv->y = i->bY[px + py*i->w];
+   31.60 :	  1276c:       ldrb    ip, [ip, r1]
+         :	  int half_px = px/2, half_py = py/2;
+    0.00 :	  12770:       add     r1, r1, r1, lsr #31
+    0.00 :	  12774:       asr     r2, r2, #1
+         :	  yuv->y = i->bY[px + py*i->w];
+    0.12 :	  12778:       strb    ip, [r3]
+         :	  yuv->u = i->bU[half_px+half_py*i->half_w];
+   10.78 :	  1277c:       ldr     lr, [r0, #8]
+         :	  int half_px = px/2, half_py = py/2;
+    0.00 :	  12780:       asr     r1, r1, #1
+         :	  yuv->u = i->bU[half_px+half_py*i->half_w];
+    0.06 :	  12784:       ldr     ip, [r0, #20]
+    0.00 :	  12788:       mla     r2, lr, r2, r1
+   13.32 :	  1278c:       ldrb    r1, [ip, r2]
+    0.00 :	  12790:       strb    r1, [r3, #1]
+         :	  yuv->v = i->bV[half_px+half_py*i->half_w];
+   11.59 :	  12794:       ldr     r1, [r0, #24]
+    0.56 :	  12798:       ldrb    r2, [r1, r2]
+   11.52 :	  1279c:       strb    r2, [r3, #2]
+         :	}
+    0.25 :	  127a0:       pop     {pc}            ; (ldr pc, [sp], #4)

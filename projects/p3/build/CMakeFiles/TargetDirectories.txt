@@ -1,0 +1,3 @@
+/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/rebuild_cache.dir
+/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/istool1.dir
+/home/pi/personal-git/Camera/rpi-mmal-demo/build/CMakeFiles/edit_cache.dir

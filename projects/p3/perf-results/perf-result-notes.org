@@ -1,0 +1,47 @@
+#+TITLE: Perf Result Notes
+* No optimization
+- Flags: -O3, -g
+- Average frame processing times:
+    Average frame processing time 10.725 ms
+    Average frame processing time 10.677 ms
+    Average frame processing time 10.661 ms
+    Average frame processing time 10.656 ms
+    Average frame processing time 10.646 ms
+    Average frame processing time 10.637 ms
+    Average frame processing time 10.614 ms
+    Average frame processing time 10.604 ms
+    Average frame processing time 10.582 ms
+    Average frame processing time 10.585 ms
+* Accessing perf reports contained
+#+begin_src bash
+sudo perf report -i <perf.data.file>
+#+end_src
+* Optimizations
+- Flags: -O3, -g, -Ofast, -funroll-loops, -mcpu=cortext-a72, -mfloat-abi=hard
+- Average frame processing times:
+    Average frame processing time 8.656 ms
+    Average frame processing time 8.625 ms
+    Average frame processing time 8.833 ms
+    Average frame processing time 9.125 ms
+    Average frame processing time 9.367 ms
+    Average frame processing time 9.542 ms
+    Average frame processing time 9.688 ms
+    Average frame processing time 9.790 ms
+    Average frame processing time 9.891 ms
+    Average frame processing time 9.976 ms
+    Average frame processing time 10.049 ms
+    Average frame processing time 10.087 ms
+* Testing process
+- call istool, press T, wait 5 seconds, close
+- sudo perf record ../build/istool1
+* Differences between gcc opt and gcc nopt
+- get_pixel_yuv is sampled %4 less frequently with the gcc optimizations added
+- Using restricted pointers in get_pixel_yuv, get_pixel_yuv is sampled %7.32 less frequently
+* Updating Draw_Line
+- Within find_chroma_matches, draw_line is frequently called
+- b
+- draw_line
+- void Draw_Line(YUV_IMAGE_T *restrict img, int p1X, int p1Y, int p2X, int p2Y,
+               YUV_T *restrict color)
+- int p1X, int p1Y, int p2X, int p2Y could be placed in a struct
+- where do they come from?
