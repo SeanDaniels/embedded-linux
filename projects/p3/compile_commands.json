@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/keyboard.c.o   -c /home/pi/embedded-linux/projects/p3/src/keyboard.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/keyboard.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/is_options.c.o   -c /home/pi/embedded-linux/projects/p3/src/is_options.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/is_options.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/buffer_demo_base.c.o   -c /home/pi/embedded-linux/projects/p3/src/buffer_demo_base.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/buffer_demo_base.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/yuv.c.o   -c /home/pi/embedded-linux/projects/p3/src/yuv.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/yuv.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/video_callback.c.o   -c /home/pi/embedded-linux/projects/p3/src/video_callback.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/video_callback.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/sccb_bus.c.o   -c /home/pi/embedded-linux/projects/p3/src/sccb_bus.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/sccb_bus.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/PCA9685_servo_driver.c.o   -c /home/pi/embedded-linux/projects/p3/src/PCA9685_servo_driver.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/PCA9685_servo_driver.c"
+},
+{
+  "directory": "/home/pi/embedded-linux/projects/p3/src",
+  "command": "/usr/bin/cc  -I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host -I/opt/vc/include/interface/vmcs_host/linux -I/home/pi/src/raspberrypi/userland -I/opt/vc/src/hello_pi/libs/vgfont -I/home/pi/embedded-linux/projects/p3/src/../inc    -O3 -g -Ofast -funroll-loops -mcpu=cortex-a72 -mfloat-abi=hard -o CMakeFiles/istool1.dir/bcm283x_board_driver.c.o   -c /home/pi/embedded-linux/projects/p3/src/bcm283x_board_driver.c",
+  "file": "/home/pi/embedded-linux/projects/p3/src/bcm283x_board_driver.c"
+}
+]

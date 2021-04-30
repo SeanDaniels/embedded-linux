@@ -42,10 +42,14 @@ void Set_Pixel_yuv(YUV_IMAGE_T *i, int px, int py, YUV_T *yuv) {
 
 void Get_Pixel_yuv(YUV_IMAGE_T *restrict i, int px, int py,
                    YUV_T *restrict yuv) {
-  int half_px = px>>1, half_py = py>>1;
-  yuv->y = i->bY[px + py * i->w];
-  yuv->u = i->bU[half_px + half_py * i->half_w];
-  yuv->v = i->bV[half_px + half_py * i->half_w];
+  // y offset increases 2 per run
+  // u Offset increases 1 per run
+  // v offset increases 1 per run
+  // yuv image type: integers: width, height, half width, half height
+  // uint8_t pointers: by, bu, bv points to location in
+  yuv->y = i->bY[px+py*i->w];
+  yuv->u = i->bU[(px>>1) + (py>>1)*i->half_w];
+  yuv->v = i->bV[(px>>1) + (py>>1)*i->half_w];
 }
 
 int Sq_UV_Difference_yuv(YUV_T *c1, YUV_T *c2) {
