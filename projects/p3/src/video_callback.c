@@ -34,29 +34,37 @@ void clear_term_screen(void) { printf("\033[2J"); }
 
 int find_chroma_matches(YUV_IMAGE_T *restrict i, YUV_T *restrict tc, CENTROID_DATA_T *restrict thisCentroid,
                         int sep) {
-  int x, y;
+  int x, y, diff, w, hw;
   int matches = 0;
   unsigned int min_x = 0xffffffff, max_x = 0, min_y = 0xffffffff, max_y = 0;
   int offsetX = 0, offsetY = 0;
   YUV_T color;
   int cx = 0, cy = 0;
-  int halfSep = sep >> 1;
   PIXEL_HOLDER_T pixelSetOne, pixelSetTwo;
+  w = i->w;
+  hw = i->half_w;
   #ifdef FIND_CHROMA_LOOP_OPT
-  for (y = halfSep; y <= i->h - halfSep; y += sep) {
-    for (x = halfSep; x <= i->w - halfSep; x += sep) {
-      Get_Pixel_yuv(i, x, y, &color);
-      pixelSetOne.pxA = x - halfSep;
-      pixelSetOne.pyA = y;
-      pixelSetOne.pxB = x + halfSep;
-      pixelSetOne.pyB = y;
-      pixelSetTwo.pxA = x;
-      pixelSetTwo.pyA = y-halfSep;
-      pixelSetTwo.pxB = x;
-      pixelSetTwo.pyB = y + halfSep;
+  for (y = sep >> 1; y <= i->h - (sep >> 1); y += sep) {
+    for (x = sep >> 1; x <= i->w - (sep >> 1); x += sep) {
+      /* Get_Pixel_yuv(i, x, y, &color); */
+      // i  = i
+      // x = x
+      // y = y
+      // &color = yuv
+      color.y = i->bY[x+y*w];
+      color.u = i->bU[(x>>1)+((y>>1)*hw)];
+      color.v = i->bV[(x>>1)+((y>>1)*hw)];
       // Identify pixels with right color
-      int diff = Sq_UV_Difference_yuv(&color, tc);
+      diff = Sq_UV_Difference_yuv(&color, tc);
       if (diff < color_threshold) {
+        pixelSetOne.pxA = x - (sep>>1);
+        pixelSetOne.pyA = y;
+        pixelSetOne.pxB = x + (sep>>1);
+        pixelSetOne.pyB = y;
+        pixelSetTwo.pxA = x;
+        pixelSetTwo.pyA = y - (sep>>1);
+        pixelSetTwo.pxB = x;
+        pixelSetTwo.pyB = y + (sep>>1);
         cx += x;
         cy += y;
         min_x = MIN(min_x, x);
@@ -73,7 +81,7 @@ int find_chroma_matches(YUV_IMAGE_T *restrict i, YUV_T *restrict tc, CENTROID_DA
       }
     }
   }
-  #else
+#else
   for (y = sep / 2; y <= i->h - sep / 2; y += sep) {
     for (x = sep / 2; x <= i->w - sep / 2; x += sep) {
       Get_Pixel_yuv(i, x, y, &color);
@@ -116,7 +124,7 @@ void video_buffer_callback(MMAL_PORT_T *port, MMAL_BUFFER_HEADER_T *buffer) {
   struct timespec t1, t2;
   static struct timespec tpf;
   struct timespec tcf;
-  static long t_sum_ms = 0;
+  static float t_sum_ms = 0;
   static int loop = 0;
   static YUV_IMAGE_T img, img2;
   int translate_image = 0;
@@ -241,7 +249,7 @@ void video_buffer_callback(MMAL_PORT_T *port, MMAL_BUFFER_HEADER_T *buffer) {
   }
 
   clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &t2);
-  long t = t2.tv_nsec - t1.tv_nsec;
+  float t = t2.tv_nsec - t1.tv_nsec;
   if (t < 0)
     t += 1000000000;
   if (loop > 1) {

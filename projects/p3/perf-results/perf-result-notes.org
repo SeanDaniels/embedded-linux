@@ -37,7 +37,8 @@ sudo perf report -i <perf.data.file>
 * Differences between gcc opt and gcc nopt
 - get_pixel_yuv is sampled %4 less frequently with the gcc optimizations added
 - Using restricted pointers in get_pixel_yuv, get_pixel_yuv is sampled %7.32 less frequently
-* Updating Draw_Line
+* Updating find_chroma_matches
+** Updating Draw_Line
 - Within find_chroma_matches, draw_line is frequently called
 - b
 - draw_line
@@ -45,3 +46,47 @@ sudo perf report -i <perf.data.file>
                YUV_T *restrict color)
 - int p1X, int p1Y, int p2X, int p2Y could be placed in a struct
 - where do they come from?
+** Updating get_pixel_yuv
+- Inlining the content of the function within find_chroma_matches results in the following average frame processing time:
+    5.938 ms
+    7.156 ms
+    7.729 ms
+    8.047 ms
+    8.238 ms
+    8.323 ms
+    8.420 ms
+    8.492 ms
+    8.549 ms
+    8.594 ms
+    8.631 ms
+- Moving pixel set to (diff < color_threshold)
+    Average frame processing time 4.875 ms
+    Average frame processing time 6.500 ms
+    Average frame processing time 7.083 ms
+    Average frame processing time 7.359 ms
+    Average frame processing time 7.537 ms
+- Moving sq_uv_diff to within conditional
+    Average frame processing time 7.500 ms
+    Average frame processing time 8.125 ms
+    Average frame processing time 8.458 ms
+    Average frame processing time 8.656 ms
+    Average frame processing time 8.688 ms
+- Declaring diff outside of loop
+    Average frame processing time 5.438 ms
+    Average frame processing time 7.000 ms
+    Average frame processing time 7.500 ms
+    Average frame processing time 7.781 ms
+    Average frame processing time 7.963 ms
+- Moving pixel set to else within (diff < color_threshold)
+    7.500 ms
+    8.406 ms
+    8.750 ms
+    8.875 ms
+    8.925 ms
+    8.990 ms
+    9.036 ms
+    9.102 ms
+    9.090 ms
+    9.113 ms
+    9.136 ms
+* This processor is an Arm V7

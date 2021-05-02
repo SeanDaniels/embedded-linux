@@ -47,6 +47,7 @@ void Get_Pixel_yuv(YUV_IMAGE_T *restrict i, int px, int py,
   // v offset increases 1 per run
   // yuv image type: integers: width, height, half width, half height
   // uint8_t pointers: by, bu, bv points to location in
+  static uint8_t loadCounter = 0;
   yuv->y = i->bY[px+py*i->w];
   yuv->u = i->bU[(px>>1) + (py>>1)*i->half_w];
   yuv->v = i->bV[(px>>1) + (py>>1)*i->half_w];
