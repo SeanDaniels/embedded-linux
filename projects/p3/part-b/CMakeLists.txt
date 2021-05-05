@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8)
+project(istool2)
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+add_subdirectory(src)
+
+# # target_compile_options(mmal_buffer_demo PRIVATE "-O3")
+# # target_compile_options(mmal_buffer_demo2 PRIVATE "-O3")
+# # target_compile_options(istool1 PRIVATE "-O3" "-g")
+# target_compile_options(istool1 PRIVATE "-O3" "-g" "-Ofast" "-funroll-loops" "-mcpu=cortex-a72" "-mfloat-abi=hard")
+
+# # target_link_libraries(mmal_buffer_demo mmal_core mmal_util mmal_vc_client vcos bcm_host rt)
+# # target_link_libraries(mmal_buffer_demo2 mmal_core mmal_util mmal_vc_client vcos bcm_host rt)
+# target_link_libraries(istool1 m mmal_core mmal_util mmal_vc_client vcos bcm_host rt)

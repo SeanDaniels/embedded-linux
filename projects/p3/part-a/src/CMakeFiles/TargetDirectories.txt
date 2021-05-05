@@ -1,0 +1,5 @@
+/home/pi/embedded-linux/projects/p3/src/CMakeFiles/rebuild_cache.dir
+/home/pi/embedded-linux/projects/p3/src/CMakeFiles/edit_cache.dir
+/home/pi/embedded-linux/projects/p3/src/src/CMakeFiles/rebuild_cache.dir
+/home/pi/embedded-linux/projects/p3/src/src/CMakeFiles/istool1.dir
+/home/pi/embedded-linux/projects/p3/src/src/CMakeFiles/edit_cache.dir

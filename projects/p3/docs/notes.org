@@ -1,0 +1,30 @@
+#+TITLE: Notes
+* Data Buffer
+** Buffer Sizes
+- Size of entire buffer: 1382400 bytes
+- Equivalent to 'uint8_t data[1382400]'
+- Size of 'Y' buffer:
+  - Starts at data[0]
+  - Ends at data[921599]
+  - 921600 bytes
+  - Equivalent to 'uint8_t Y[921600]'
+- Size of 'U' buffer:
+  - Starts at data[921600]
+  - Ends at data[1151999]
+  - Equivalent to 'uint8_t U[230400]'
+  - 1280*720 + (1280*720)/4 -> 1152000
+  - 230400 bytes
+- Size of 'V' buffer:
+  - Starts at data[1152000]
+  - Ends at ata[1382399]
+  - Equivalent to 'uint8_t V[230400]'
+** Relationship Between Y, U, and V
+- A given pixel is indexed by it's x(width),y(height) coordinates
+- The pixels are arranged as matrix that is 1280x720
+- The index of the U data for a given pixel in the U vector is:
+  U[x/2 + ((y/2)*640)]
+** How many loop iterations should there be
+- There are 921600 pixels
+- If each inner loop iteration handles 8 pixels, there should be 115200 iterations
+- Keep the outer loop at 720 iterations
+- Shrink the inner loop to 160 iterations

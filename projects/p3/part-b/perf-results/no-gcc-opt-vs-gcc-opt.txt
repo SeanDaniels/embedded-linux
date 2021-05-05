@@ -1,0 +1,230 @@
+# Event 'cpu-clock'
+#
+# Baseline    Delta  Shared Object         Symbol                               
+# ........  .......  ....................  .....................................
+#
+    18.39%   -1.07%  istool1               [.] find_chroma_matches
+    18.27%   +4.21%  istool1               [.] Get_Pixel_yuv
+    12.67%   -0.69%  [kernel.kallsyms]     [k] _raw_spin_unlock_irqrestore
+    12.10%   -4.91%  istool1               [.] Sq_UV_Difference_yuv
+    11.01%   +1.65%  istool1               [.] Draw_Line
+     7.14%   +0.02%  libarmmem-v7l.so      [.] memcpy
+     4.00%   -0.39%  [kernel.kallsyms]     [k] vchiq_prepare_bulk_data
+     2.52%   +0.07%  [kernel.kallsyms]     [k] internal_get_user_pages_fast
+     2.17%   +0.02%  [kernel.kallsyms]     [k] sg_next
+     1.70%   +0.08%  [kernel.kallsyms]     [k] kmap_atomic_high_prot
+     1.38%   +0.31%  [kernel.kallsyms]     [k] dma_direct_map_sg
+     1.37%   +0.24%  [kernel.kallsyms]     [k] dma_cache_maint_page
+     0.89%   -0.04%  [kernel.kallsyms]     [k] v7_dma_clean_range
+     0.78%   +0.18%  [kernel.kallsyms]     [k] v7_dma_inv_range
+     0.44%   -0.09%  [kernel.kallsyms]     [k] mmioset
+     0.36%   -0.21%  libc-2.28.so          [.] __clock_gettime
+     0.27%   +0.13%  [kernel.kallsyms]     [k] vector_swi
+     0.26%   -0.06%  [kernel.kallsyms]     [k] finish_task_switch
+     0.25%   +0.08%  [kernel.kallsyms]     [k] _raw_spin_lock_irqsave
+     0.16%   -0.03%  [kernel.kallsyms]     [k] isolate_migratepages_block
+     0.12%   -0.00%  [kernel.kallsyms]     [k] queue_work_on
+     0.10%   +0.04%  [kernel.kallsyms]     [k] wait_for_completion_interruptible
+     0.10%   +0.02%  [kernel.kallsyms]     [k] do_page_fault
+     0.09%   -0.01%  [kernel.kallsyms]     [k] vchiq_ioctl
+     0.08%   +0.03%  istool1               [.] Draw_Circle
+     0.08%   +0.01%  libarmmem-v7l.so      [.] memset
+     0.08%   -0.01%  libc-2.28.so          [.] __GI___printf_fp_l
+     0.07%   +0.05%  [kernel.kallsyms]     [k] mod_node_page_state
+     0.07%   +0.04%  [kernel.kallsyms]     [k] kunmap_atomic_high
+     0.07%   +0.02%  [kernel.kallsyms]     [k] arch_sync_dma_for_device
+     0.07%   -0.03%  [kernel.kallsyms]     [k] __local_bh_enable_ip
+     0.07%   -0.04%  [kernel.kallsyms]     [k] shrink_page_list
+     0.07%           istool1               [.] delay_ms
+     0.06%   +0.11%  [kernel.kallsyms]     [k] ktime_get_raw_ts64
+     0.06%   +0.04%  libpthread-2.28.so    [.] __pthread_mutex_lock
+     0.06%   -0.02%  [kernel.kallsyms]     [k] __se_sys_clock_gettime32
+     0.06%   -0.02%  [kernel.kallsyms]     [k] __und_usr
+     0.06%   -0.04%  [kernel.kallsyms]     [k] isolate_migratepages_range
+     0.06%   -0.04%  [kernel.kallsyms]     [k] kmap_high_get
+     0.06%   -0.04%  libvchiq_arm.so       [.] completion_thread
+     0.06%           [kernel.kallsyms]     [k] alloc_contig_range
+     0.05%   +0.05%  [kernel.kallsyms]     [k] get_page_from_freelist
+     0.05%   -0.01%  [kernel.kallsyms]     [k] __softirqentry_text_start
+     0.05%   -0.03%  [kernel.kallsyms]     [k] cpu_v7_set_pte_ext
+     0.05%           [kernel.kallsyms]     [k] schedule_timeout
+     0.05%           istool1               [.] delay_us
+     0.03%   +0.06%  [kernel.kallsyms]     [k] handle_mm_fault
+     0.03%   +0.06%  libc-2.28.so          [.] vfprintf
+     0.03%   +0.04%  [kernel.kallsyms]     [k] free_unref_page_list
+     0.03%   +0.04%  [kernel.kallsyms]     [k] lru_add_drain_all
+     0.03%   +0.03%  [kernel.kallsyms]     [k] mutex_unlock
+     0.03%   +0.00%  [kernel.kallsyms]     [k] __flush_work
+     0.03%   +0.00%  [kernel.kallsyms]     [k] _raw_spin_lock
+     0.03%   +0.00%  [kernel.kallsyms]     [k] put_old_timespec32
+     0.03%   -0.01%  libmmal_core.so       [.] mmal_pool_buffer_header_release
+     0.03%   -0.01%  libmmal_core.so       [.] mmal_port_send_buffer
+     0.03%   -0.02%  [kernel.kallsyms]     [k] vchiq_check_service
+     0.03%   -0.02%  libmmal_vc_client.so  [.] mmal_vc_port_send
+     0.03%           libc-2.28.so          [.] __gettimeofday
+     0.02%   +0.07%  [kernel.kallsyms]     [k] mmiocpy
+     0.02%   +0.05%  [kernel.kallsyms]     [k] queue_message
+     0.02%   +0.04%  libpthread-2.28.so    [.] __pthread_mutex_unlock_usercnt
+     0.02%   +0.03%  [kernel.kallsyms]     [k] wait_for_completion
+     0.02%   +0.03%  libc-2.28.so          [.] __mpn_divrem
+     0.02%   +0.01%  [kernel.kallsyms]     [k] schedule
+     0.02%   +0.01%  libmmal_vc_client.so  [.] mmal_vc_shm_lock
+     0.02%   +0.00%  [kernel.kallsyms]     [k] __apply_to_page_range
+     0.02%   +0.00%  [kernel.kallsyms]     [k] __copy_to_user_std
+     0.02%   +0.00%  [kernel.kallsyms]     [k] __se_sys_futex_time32
+     0.02%   +0.00%  [kernel.kallsyms]     [k] mutex_lock
+     0.02%   +0.00%  istool1               [.] video_buffer_callback
+     0.02%   +0.00%  libmmal_vc_client.so  [.] mmal_vc_vchiq_callback
+     0.02%   -0.01%  [kernel.kallsyms]     [k] cpu_clock_sample_group
+     0.02%   -0.01%  [kernel.kallsyms]     [k] drain_all_pages
+     0.02%   -0.01%  [kernel.kallsyms]     [k] fput_many
+     0.02%   -0.01%  [kernel.kallsyms]     [k] kmem_cache_alloc_trace
+     0.02%   -0.01%  [kernel.kallsyms]     [k] migrate_pages
+     0.02%   -0.01%  [kernel.kallsyms]     [k] mutex_lock_killable
+     0.02%   -0.01%  [kernel.kallsyms]     [k] run_timer_softirq
+     0.02%   -0.01%  [kernel.kallsyms]     [k] thread_group_cputime
+     0.02%   -0.01%  libc-2.28.so          [.] __GI___ioctl
+     0.02%   -0.01%  libc-2.28.so          [.] __mpn_lshift
+     0.02%   -0.01%  libmmal_vc_client.so  [.] 0x000018e8
+     0.02%           [kernel.kallsyms]     [k] __bitmap_set
+     0.02%           [kernel.kallsyms]     [k] __wake_q_add
+     0.02%           [kernel.kallsyms]     [k] _cond_resched
+     0.02%           [kernel.kallsyms]     [k] kmem_cache_alloc
+     0.02%           [kernel.kallsyms]     [k] page_remove_rmap
+     0.02%           [kernel.kallsyms]     [k] rcu_all_qs
+     0.02%           [kernel.kallsyms]     [k] reclaim_clean_pages_from_list
+     0.02%           [kernel.kallsyms]     [k] remote_event_signal
+     0.02%           libc-2.28.so          [.] fprintf
+     0.02%           libmmal_core.so       [.] mmal_component_action_trigger
+     0.02%           libmmal_vc_client.so  [.] mmal_vc_do_callback_loop
+     0.01%   +0.06%  [kernel.kallsyms]     [k] arch_counter_get_cntpct
+     0.01%   +0.06%  [kernel.kallsyms]     [k] futex_wake
+     0.01%   +0.05%  libmmal_vc_client.so  [.] mmal_vc_shm_unlock
+     0.01%   +0.01%  [kernel.kallsyms]     [k] dma_alloc_attrs
+     0.01%   +0.01%  [kernel.kallsyms]     [k] do_futex
+     0.01%   +0.01%  [kernel.kallsyms]     [k] security_file_ioctl
+     0.01%   +0.01%  [kernel.kallsyms]     [k] vchiq_bulk_transfer
+     0.01%   +0.01%  libvcos.so            [.] vcos_generic_blockpool_free
+     0.01%   +0.00%  [kernel.kallsyms]     [k] __copy_from_user_std
+     0.01%   +0.00%  [kernel.kallsyms]     [k] __local_bh_disable_ip
+     0.01%   +0.00%  [kernel.kallsyms]     [k] __ret_fast_syscall
+     0.01%   +0.00%  [kernel.kallsyms]     [k] __sched_text_start
+     0.01%   +0.00%  [kernel.kallsyms]     [k] cma_alloc
+     0.01%   +0.00%  [kernel.kallsyms]     [k] copy_page
+     0.01%   +0.00%  [kernel.kallsyms]     [k] cpumask_next
+     0.01%   +0.00%  [kernel.kallsyms]     [k] down_read
+     0.01%   +0.00%  [kernel.kallsyms]     [k] ktime_get_ts64
+     0.01%   +0.00%  [kernel.kallsyms]     [k] mark_wake_futex
+     0.01%   +0.00%  [kernel.kallsyms]     [k] mem_cgroup_charge
+     0.01%   +0.00%  [kernel.kallsyms]     [k] pin_page_for_write
+     0.01%   +0.00%  [kernel.kallsyms]     [k] rebalance_domains
+     0.01%   +0.00%  [kernel.kallsyms]     [k] sg_init_table
+     0.01%   +0.00%  [kernel.kallsyms]     [k] start_isolate_page_range
+     0.01%   +0.00%  [kernel.kallsyms]     [k] v7_dma_map_area
+     0.01%   +0.00%  [kernel.kallsyms]     [k] vchiq_platform_get_arm_state
+     0.01%   +0.00%  [kernel.kallsyms]     [k] vmacache_find
+     0.01%   +0.00%  [kernel.kallsyms]     [k] wake_up_q
+     0.01%   +0.00%  ld-2.28.so            [.] _dl_map_object_from_fd
+     0.01%   +0.00%  ld-2.28.so            [.] do_lookup_x
+     0.01%   +0.00%  libc-2.28.so          [.] __aeabi_uidiv
+     0.01%   +0.00%  libpthread-2.28.so    [.] __new_sem_wait_slow.constprop.1
+     0.01%           [kernel.kallsyms]     [k] __d_lookup_rcu
+     0.01%           [kernel.kallsyms]     [k] __dma_alloc
+     0.01%           [kernel.kallsyms]     [k] __put_user_4
+     0.01%           [kernel.kallsyms]     [k] __sync_icache_dcache
+     0.01%           [kernel.kallsyms]     [k] __vma_adjust
+     0.01%           [kernel.kallsyms]     [k] _find_next_zero_bit_le
+     0.01%           [kernel.kallsyms]     [k] _set_bit
+     0.01%           [kernel.kallsyms]     [k] bitmap_find_next_zero_area_off
+     0.01%           [kernel.kallsyms]     [k] call_fpe
+     0.01%           [kernel.kallsyms]     [k] do_work_pending
+     0.01%           [kernel.kallsyms]     [k] down
+     0.01%           [kernel.kallsyms]     [k] dquot_alloc_inode
+     0.01%           [kernel.kallsyms]     [k] file_tty_write.constprop.14
+     0.01%           [kernel.kallsyms]     [k] generic_fillattr
+     0.01%           [kernel.kallsyms]     [k] isolate_freepages_block
+     0.01%           [kernel.kallsyms]     [k] isolate_freepages_range
+     0.01%           [kernel.kallsyms]     [k] local_restart
+     0.01%           [kernel.kallsyms]     [k] mem_cgroup_uncharge_list
+     0.01%           [kernel.kallsyms]     [k] migrate_prep
+     0.01%           [kernel.kallsyms]     [k] n_tty_read
+     0.01%           [kernel.kallsyms]     [k] ns_to_timespec64
+     0.01%           [kernel.kallsyms]     [k] page_mapping
+     0.01%           [kernel.kallsyms]     [k] plist_del
+     0.01%           [kernel.kallsyms]     [k] rcu_core_si
+     0.01%           [kernel.kallsyms]     [k] release_pages
+     0.01%           [kernel.kallsyms]     [k] set_pte_at
+     0.01%           [kernel.kallsyms]     [k] task_work_add
+     0.01%           [kernel.kallsyms]     [k] task_work_run
+     0.01%           [kernel.kallsyms]     [k] test_pages_isolated
+     0.01%           [kernel.kallsyms]     [k] try_to_wake_up
+     0.01%           [kernel.kallsyms]     [k] unset_migratetype_isolate
+     0.01%           [kernel.kallsyms]     [k] v7_dma_flush_range
+     0.01%           [kernel.kallsyms]     [k] vm_area_alloc
+     0.01%           [kernel.kallsyms]     [k] wake_q_add_safe
+     0.01%           istool1               [.] __aeabi_idiv
+     0.01%           ld-2.28.so            [.] __aeabi_uidiv
+     0.01%           ld-2.28.so            [.] _dl_check_map_versions
+     0.01%           libc-2.28.so          [.] __aeabi_uidivmod
+     0.01%           libc-2.28.so          [.] __libc_calloc
+     0.01%           libc-2.28.so          [.] __mpn_cmp
+     0.01%           libc-2.28.so          [.] __mpn_mul_1
+     0.01%           libc-2.28.so          [.] memcpy
+     0.01%           libc-2.28.so          [.] strlen
+     0.01%           libmmal_core.so       [.] sem_wait@plt
+     0.01%           libmmal_core.so       [.] 0x000028f0
+     0.01%           libmmal_vc_client.so  [.] mmal_ports_alloc@plt
+             +0.07%  [kernel.kallsyms]     [k] vchiq_release_message
+             +0.05%  libpthread-2.28.so    [.] sem_post@@GLIBC_2.4
+             +0.04%  [kernel.kallsyms]     [k] __copy_to_user_memcpy
+             +0.02%  [kernel.kallsyms]     [k] down_read_trylock
+             +0.02%  [kernel.kallsyms]     [k] futex_wait
+             +0.02%  [kernel.kallsyms]     [k] ktime_get_real_ts64
+             +0.02%  [kernel.kallsyms]     [k] memblock_is_map_memory
+             +0.02%  [kernel.kallsyms]     [k] posix_get_monotonic_raw
+             +0.02%  libpthread-2.28.so    [.] __pthread_disable_asynccancel
+             +0.01%  [kernel.kallsyms]     [k] __alloc_pages_nodemask
+             +0.01%  [kernel.kallsyms]     [k] __fget_files
+             +0.01%  [kernel.kallsyms]     [k] __fget_light
+             +0.01%  [kernel.kallsyms]     [k] __se_sys_ioctl
+             +0.01%  [kernel.kallsyms]     [k] _find_first_bit_le
+             +0.01%  [kernel.kallsyms]     [k] _raw_spin_lock_irq
+             +0.01%  [kernel.kallsyms]     [k] arch_counter_read
+             +0.01%  [kernel.kallsyms]     [k] call_rcu
+             +0.01%  [kernel.kallsyms]     [k] cpumask_next_and
+             +0.01%  [kernel.kallsyms]     [k] dma_alloc_from_contiguous
+             +0.01%  [kernel.kallsyms]     [k] dma_direct_alloc
+             +0.01%  [kernel.kallsyms]     [k] ext4_inode_journal_mode
+             +0.01%  [kernel.kallsyms]     [k] filemap_map_pages
+             +0.01%  [kernel.kallsyms]     [k] generic_file_buffered_read
+             +0.01%  [kernel.kallsyms]     [k] get_pfnblock_flags_mask
+             +0.01%  [kernel.kallsyms]     [k] hash_futex
+             +0.01%  [kernel.kallsyms]     [k] lookup_fast
+             +0.01%  [kernel.kallsyms]     [k] mutex_trylock
+             +0.01%  [kernel.kallsyms]     [k] page_address
+             +0.01%  [kernel.kallsyms]     [k] pid_for_clock
+             +0.01%  [kernel.kallsyms]     [k] plist_add
+             +0.01%  [kernel.kallsyms]     [k] posix_get_monotonic_timespec
+             +0.01%  [kernel.kallsyms]     [k] rcu_read_unlock_strict
+             +0.01%  [kernel.kallsyms]     [k] release_slot
+             +0.01%  [kernel.kallsyms]     [k] task_rq_lock
+             +0.01%  [kernel.kallsyms]     [k] task_sched_runtime
+             +0.01%  [kernel.kallsyms]     [k] unlock_service
+             +0.01%  [kernel.kallsyms]     [k] up_read
+             +0.01%  [kernel.kallsyms]     [k] vchiq_ioc_copy_element_data
+             +0.01%  [kernel.kallsyms]     [k] vchiq_queue_message
+             +0.01%  istool1               [.] 0x00001b40
+             +0.01%  ld-2.28.so            [.] _dl_lookup_symbol_x
+             +0.01%  libc-2.28.so          [.] __printf_fp
+             +0.01%  libc-2.28.so          [.] __strchrnul
+             +0.01%  libc-2.28.so          [.] _dl_addr
+             +0.01%  libc-2.28.so          [.] _int_free
+             +0.01%  libc-2.28.so          [.] hack_digit
+             +0.01%  libmmal_core.so       [.] mmal_port_buffer_header_callback
+             +0.01%  libmmal_core.so       [.] mmal_queue_length
+             +0.01%  libmmal_core.so       [.] vcos_thread_join@plt
+             +0.01%  libmmal_vc_client.so  [.] memset@plt
+             +0.01%  libmmal_vc_client.so  [.] mmal_vc_port_send_callback
+             +0.01%  libmmal_vc_client.so  [.] mmal_vc_send_message
+             +0.01%  libmmal_vc_client.so  [.] vchiq_queue_bulk_receive@plt
+             +0.01%  libvcos.so            [.] vcos_cmd_vprintf@plt

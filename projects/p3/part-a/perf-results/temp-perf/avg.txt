@@ -1,0 +1,5 @@
+Average frame processing time 7.250 ms
+Average frame processing time 7.625 ms
+Average frame processing time 7.750 ms
+Average frame processing time 7.812 ms
+Average frame processing time 7.850 ms

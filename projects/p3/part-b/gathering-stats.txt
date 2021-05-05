@@ -1,0 +1,14 @@
+pipe output from istool to some text file:
+./istool1 2> output.txt
+
+set istool to target the blue post it note:
+Press 't'
+
+set istool to output times:
+Press 'd'
+
+close istool:
+ctrl-c
+
+get the average times from output.txt
+cat output.txt | grep Average > averageTimes.txt

@@ -1,0 +1,103 @@
+#+TITLE: Perf Result Notes
+* No optimization
+- Flags: -O3, -g
+- Average frame processing times:
+    Average frame processing time 10.725 ms
+    Average frame processing time 10.677 ms
+    Average frame processing time 10.661 ms
+    Average frame processing time 10.656 ms
+    Average frame processing time 10.646 ms
+    Average frame processing time 10.637 ms
+    Average frame processing time 10.614 ms
+    Average frame processing time 10.604 ms
+    Average frame processing time 10.582 ms
+    Average frame processing time 10.585 ms
+* Accessing perf reports contained
+#+begin_src bash
+sudo perf report -i <perf.data.file>
+#+end_src
+* Optimizations
+- Flags: -O3, -g, -Ofast, -funroll-loops, -mcpu=cortext-a72, -mfloat-abi=hard
+- Average frame processing times:
+    Average frame processing time 8.656 ms
+    Average frame processing time 8.625 ms
+    Average frame processing time 8.833 ms
+    Average frame processing time 9.125 ms
+    Average frame processing time 9.367 ms
+    Average frame processing time 9.542 ms
+    Average frame processing time 9.688 ms
+    Average frame processing time 9.790 ms
+    Average frame processing time 9.891 ms
+    Average frame processing time 9.976 ms
+    Average frame processing time 10.049 ms
+    Average frame processing time 10.087 ms
+* Testing process
+- call istool, press T, wait 5 seconds, close
+- sudo perf record ../build/istool1
+* Differences between gcc opt and gcc nopt
+- get_pixel_yuv is sampled %4 less frequently with the gcc optimizations added
+- Using restricted pointers in get_pixel_yuv, get_pixel_yuv is sampled %7.32 less frequently
+* Updating find_chroma_matches
+** General updates
+- Removed conditional that assigned cx/cy with (max_x + min_x /2)
+- removed calls for determining max and min of x and y
+- Created a struct for called pixel set, used for draw_line. Instead of passing 4 variables, pass one struct. Total number of variables passed to function call is 3 instead of 6
+- Moving pixel set to (diff < color_threshold)
+     4.875 ms
+     6.500 ms
+     7.083 ms
+     7.359 ms
+     7.537 ms
+- Moving sq_uv_diff to within conditional "if(diff < sq_uv_diff())"
+     7.500 ms
+     8.125 ms
+     8.458 ms
+     8.656 ms
+     8.688 ms
+- Declaring 'diff' variable outside of inner loop body
+     5.438 ms
+     7.000 ms
+     7.500 ms
+     7.781 ms
+     7.963 ms
+- Moving pixel set to else within (diff < color_threshold)
+    7.500 ms
+    8.406 ms
+    8.750 ms
+    8.875 ms
+    8.925 ms
+    8.990 ms
+    9.036 ms
+    9.102 ms
+    9.090 ms
+    9.113 ms
+    9.136 ms
+- Using perf to count cache misses:
+  + Inline code: ~5 seconds / ~1794424 misses
+  + Function call: ~5 seconds / ~1914817 misses
+** Updating Draw_Line
+- Within find_chroma_matches, draw_line is frequently called
+- void Draw_Line(YUV_IMAGE_T *restrict img, int p1X, int p1Y, int p2X, int p2Y,
+               YUV_T *restrict color)
+- int p1X, int p1Y, int p2X, int p2Y could be placed in a struct
+- where do they come from?
+- Updated function to accept a structure, 'PixelSet', which contains p1x, p1y, p2x, and p2y
+** Updating get_pixel_yuv
+- Inlining the content of the function within find_chroma_matches results in the following average frame processing time:
+    5.938 ms
+    7.156 ms
+    7.729 ms
+    8.047 ms
+    8.238 ms
+    8.323 ms
+    8.420 ms
+    8.492 ms
+    8.549 ms
+    8.594 ms
+    8.631 ms
+* Find chroma loop algorithm
+- The nested loop iterates through the height of the buffer contents of the data the buffer. The outer loop handles the height (rows/720) and the inner loop handles the width (columns/1280). In each iteration of the loop, data from the buffer 'data' is loaded to a color element. Three different locations of the 'data' buffer are referenced:
+  - by[] -> range is data[0] - data [921599]
+  - bu[] -> range is data[921600] - data[1151999] -> size = 230399
+  - bv[] -> range is data[1152000] - data[1382400] -> size = 230400
+* This processor is an Arm V7
